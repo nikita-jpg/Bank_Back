@@ -13,7 +13,7 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void saveMessage(Client message) {
+    public void saveClient(Client message) {
         clientRepository.save(message);
     }
 }

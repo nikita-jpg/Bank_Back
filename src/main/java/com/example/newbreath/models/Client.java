@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "clients")
 public class Client {
-    
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +19,17 @@ public class Client {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "familia")
+    private String familia;
+
+    @Column(name = "otchestvo")
+    private String otchestvo;
+
+    @Column(name = "phone")
+    private String phoneNumber;
+
+    @Column(name = "email")
+    private String email;
 
 }
