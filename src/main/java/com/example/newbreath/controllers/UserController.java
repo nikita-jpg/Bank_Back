@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "")
-    public List<Tariff> getFirstPage(){
+    @GetMapping(value = "/getTariffs")
+    public List<Tariff> getTariffs(){
         return tariffService.getTariffs();
     }
 
