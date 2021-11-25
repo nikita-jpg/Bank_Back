@@ -12,12 +12,12 @@ import java.util.List;
 
 @RequestMapping(value = "/")
 @RestController
-public class Controller {
+public class UserController {
 
     private final ClientService clientService;
     private final TariffService tariffService;
 
-    public Controller(ClientService clientService, TariffService tariffService) {
+    public UserController(ClientService clientService, TariffService tariffService) {
         this.clientService = clientService;
         this.tariffService = tariffService;
     }

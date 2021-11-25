@@ -9,7 +9,11 @@ import com.example.newbreath.services.ClientService;
 import com.example.newbreath.services.TariffService;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping(value = "/admin")
 @RestController
@@ -26,7 +30,6 @@ public class AdminController {
     @CrossOrigin
     @PostMapping(value = "")
     public Boolean checkAdmin(@RequestBody Admin admin){
-        List<Admin> list = adminService.findAdmin(admin);
         if(adminService.findAdmin(admin).size() == 0){
             return false;
         }
@@ -43,6 +46,24 @@ public class AdminController {
         }
         else {
             return null;
+        }
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/setTariffs")
+    public Boolean setTariffs(@RequestBody Map allParams){
+        Admin admin = new Admin();
+        admin.setLogin(String.valueOf(allParams.get("login")));
+        admin.setPassword(String.valueOf(allParams.get("password")));
+
+        if(adminService.findAdmin(admin).size() != 0){
+
+            ArrayList<LinkedHashMap> tariffs = (ArrayList<LinkedHashMap>) allParams.get("tariffs");
+            tariffService.saveTariffs(tariffs);
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

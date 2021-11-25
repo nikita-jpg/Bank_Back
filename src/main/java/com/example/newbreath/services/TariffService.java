@@ -6,6 +6,8 @@ import com.example.newbreath.repositories.ClientRepository;
 import com.example.newbreath.repositories.TariffRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Service
@@ -20,7 +22,13 @@ public class TariffService {
         return (List<Tariff>) tariffRepository.findAll();
     }
 
-//    public void saveClient(Client message) {
-//        clientRepository.save(message);
-//    }
+    public void saveTariffs(ArrayList<LinkedHashMap> tariffs) {
+        tariffRepository.deleteAll();
+        for(int i=0;i<tariffs.size();i++){
+            Tariff tariff = new Tariff();
+            tariff.setRussianName((String) tariffs.get(i).get("russianName"));
+            tariff.setFormula((String) tariffs.get(i).get("formula"));
+            tariffRepository.save(tariff);
+        }
+    }
 }
