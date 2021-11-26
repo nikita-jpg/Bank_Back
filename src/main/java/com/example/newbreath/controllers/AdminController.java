@@ -1,15 +1,11 @@
 package com.example.newbreath.controllers;
 
 import com.example.newbreath.models.Admin;
-import com.example.newbreath.models.Client;
 import com.example.newbreath.models.Tariff;
-import com.example.newbreath.representations.TarifRepresentation;
 import com.example.newbreath.services.AdminService;
-import com.example.newbreath.services.ClientService;
 import com.example.newbreath.services.TariffService;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

@@ -4,8 +4,6 @@ import com.example.newbreath.models.Client;
 import com.example.newbreath.models.Tariff;
 import com.example.newbreath.services.TariffService;
 import org.springframework.web.bind.annotation.*;
-import com.example.newbreath.repositories.ClientRepository;
-import com.example.newbreath.representations.TarifRepresentation;
 import com.example.newbreath.services.ClientService;
 
 import java.util.List;
